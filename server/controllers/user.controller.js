@@ -20,7 +20,7 @@ class UserController{
     }
 
     login(req, res){
-        user.findOne({email: req.body.email})
+        User.findOne({email: req.body.email})
             .then(user=>{
                 if(user === null){
                     res.json({msg:"invalid login attempt (invalid email)"})
@@ -42,9 +42,9 @@ class UserController{
 }
 module.exports = new UserController()
 
-module.exports.createone= (req, res) => {
-    User.create(req.body)
-        .then(console.log("first"))
-        .catch(console.log("second"))
+// module.exports.createone= (req, res) => {
+//     User.create(req.body)
+//         .then(console.log("first"))
+//         .catch(console.log("second"))
 
-}
+// }

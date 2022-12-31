@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const db_name = "DataBase"
+const db_name = "Project-DataBase"
 
 
 mongoose.connect(`mongodb://127.0.0.1/${db_name}`, {
