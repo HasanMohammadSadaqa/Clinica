@@ -21,16 +21,18 @@ const UserSchema = new mongoose.Schema({
     },
     phone: {
         type: Number,
-        require: [true, "Phone is required"],
-        minlength: [10, "your phone mus be 10 charachters"]
+        required: [true, "Phone is required"],
+        minlength: [10, "your phone must be at least 10 characters"]
     },
     birthday: {
         type: Date,
+        required:["Birthday is required"],
         default: Date.now,
     },
     password: {
         type: String,
-        require: ["password is required"]
+        required: ["password is required"],
+        minlength:[8, "password must have at least 8 characters"]
 
     }
 },
@@ -48,7 +50,7 @@ UserSchema.virtual("confirm")
     })
 
 
-//now i want to compare actuall asswored with the virtual one 
+//now i want to compare actuall passwored with the virtual one 
 UserSchema.pre("validate", function(next){
     if(this.password !== this.confirm){
         this.invalidate("confirm", "passwords must match")
