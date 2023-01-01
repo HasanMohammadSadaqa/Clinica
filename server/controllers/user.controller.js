@@ -29,12 +29,12 @@ class UserController{
                         .then(passwordIsValid=>{                    //note that the "passwordIsValid" is a boolean variable thst store the result of compare
                             if(passwordIsValid){
                                 res.cookie("usertoken", jwt.sign({_id: user_id}, secret), {httpOnly: true})
-                                .json({msg: "success!"})
+                                .json({msg: "success!"});
                             }else{
                                 res.json({msg: "invalid login attempt (incorrect password)"})
                             }
                         })
-                        .catch(err=> res.json({msg: "invalid login attempt "}))
+                        .catch(err=> res.json({msg: "invalid login attempt", err}))
                 }
             })
             .catch(err=> res.json(err))
