@@ -24,6 +24,10 @@ const LoginForm = (props) => {
                         <input type="password" className='form-control' name='password' onChange={(e) => setPassword(e.target.value)} value={password} />
                     </div>
                     <input type="submit" value="Login" className='btn btn-primary' />
+                    {/* <button className='btn btn-primary' onClick={registration}>Are you register?</button> */}
+                    <div>
+                    <a href='/user/registration'>are you register?</a>
+                    </div>
                 </div>
             </form>
         </div>

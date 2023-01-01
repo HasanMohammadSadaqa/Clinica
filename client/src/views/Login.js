@@ -24,6 +24,10 @@ const Login = (props) => {
                 console.log(err)
             })
     }
+
+    // const goToRegistration = ()=>{
+    //     navigate(`/user/registration`);
+    // }
     return (
         <div>
             <LoginForm initEmail="" initPassword="" onSubmitLoginProp={login} errors={errors} />
