@@ -14,7 +14,11 @@ const Login = (props) => {
         axios.post("http://localhost:8000/api/login", loggedInUser, {withCredentials: true})
             .then(res=>{
                 console.log(res);
-                navigate(`/Home`)
+                if(res.data.msg == "success!"){
+                    navigate(`/Home`)
+                }else{
+                    setErrors(res.data.msg)
+                }
             })
             .catch(err=>{
                 console.log(err)
@@ -22,7 +26,7 @@ const Login = (props) => {
     }
     return (
         <div>
-            <LoginForm initEmail="" initPw="" onSubmitLoginProp={login} />
+            <LoginForm initEmail="" initPassword="" onSubmitLoginProp={login} errors={errors} />
         </div>
     )
 }

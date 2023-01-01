@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 
 const LoginForm = (props) => {
-    const {initEmail, initPw, onSubmitLoginProp} = props
+    const {initEmail, initPassword, onSubmitLoginProp, errors} = props
     const [email, setEmail] = useState(initEmail)
-    const [pw, setPw] = useState(initPw)
+    const [password, setPassword] = useState(initPassword)
 
     const handleLoginSubmit = (e)=>{
         e.preventDefault()
-        onSubmitLoginProp({email, pw})
+        onSubmitLoginProp({email, password});
     }
     return (
         <div>
             <h1 className='col-6'>Login Form</h1>
+            {errors? <p className='text-danger col-6'>{errors}</p>: "" }
             <form onSubmit={handleLoginSubmit}>
                 <div className='col-6'>
                     <div className='form-group'>
@@ -21,7 +22,7 @@ const LoginForm = (props) => {
                     </div>
                     <div className='form-group'>
                         <label>Password:</label>
-                        <input type="password" className='form-control' name='password' onChange={(e)=>setPw(e.target.value)} value={pw}/>
+                        <input type="password" className='form-control' name='password' onChange={(e)=>setPassword(e.target.value)} value={password}/>
                         {/* {errors.firstName? <p className='text-danger'> {errors.firstName.message} </p>: ""} */}
                     </div>
                     <input type="submit" value="Login" className='btn btn-primary'/>
