@@ -122,3 +122,15 @@ module.exports.userAppointments = (request, response) => {
   })
 
 }
+
+module.exports.addNote = (request, response) => {
+  const { id } = request.params;
+  console.log(request.body)
+  const note =request.body.note;
+  Appointment.findOne({ _id: id })
+  .then(appointment=>{
+    appointment.note=note;
+    response.json(appointment)
+  })
+
+}
