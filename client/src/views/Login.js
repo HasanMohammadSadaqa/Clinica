@@ -16,10 +16,10 @@ const Login = (props) => {
                 console.log(res);
                 if(res.config.data  == 
                     "{\"email\":\"hasan@gmail.com\",\"password\":\"123456789\"}"){
-                        navigate(`/admin`)
+                        navigate(`/today`)
                     }
                 else if(res.data.msg == "success!"){
-                    navigate(`/Home`)
+                    navigate(`/user/profile`)
                 }else{
                     setErrors(res.data.msg)
                 }
