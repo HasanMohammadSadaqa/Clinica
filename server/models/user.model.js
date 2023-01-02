@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcrypt");
+const uniqueValidator = require('mongoose-unique-validator')
 // const myTime = moment(dateFromDB).format('hh:mm:ss')
-
+uniqueValidator.defaults.message = 'this email is already used, please try in anther one'
 const UserSchema = new mongoose.Schema({
     firstName: {
         type: String,
@@ -21,7 +22,7 @@ const UserSchema = new mongoose.Schema({
         unique: [true, "this email is already used"]
     },
     phone: {
-        type: Number,
+        type:Number,
         required: [true, "Phone is required"],
         minlength: [10, "your phone must be at least 10 characters"]
     },
@@ -39,6 +40,8 @@ const UserSchema = new mongoose.Schema({
 },
     { timestamps: true }
 );
+UserSchema.plugin(uniqueValidator)
+
 
 //create (getter and setter) a virtual confirm password to compare it with password we want to save it in our db
 // and we use get() to extract information from the form and .set() to set the value from the form
