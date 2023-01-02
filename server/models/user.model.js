@@ -1,8 +1,17 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const uniqueValidator = require('mongoose-unique-validator')
-// const myTime = moment(dateFromDB).format('hh:mm:ss')
 uniqueValidator.defaults.message = 'this email is already used, please try in anther one'
+
+const AppointmentSchema = new mongoose.Schema({
+    date: { type: Date },
+    hour: { type: Number },
+    reserved:{type:Boolean},
+    note:{type:String}
+}, { timestamps: true });
+module.exports.Appointment = mongoose.model('Appointment', AppointmentSchema);
+
+
 const UserSchema = new mongoose.Schema({
     firstName: {
         type: String,
@@ -36,34 +45,30 @@ const UserSchema = new mongoose.Schema({
         required: ["password is required"],
         minlength:[8, "password must have at least 8 characters"]
 
-    }
+    },
+    appointments:[AppointmentSchema]
 },
     { timestamps: true }
 );
 UserSchema.plugin(uniqueValidator)
 
 
-//create (getter and setter) a virtual confirm password to compare it with password we want to save it in our db
-// and we use get() to extract information from the form and .set() to set the value from the form
-UserSchema.virtual("confirm")
-    .get(function(){
-        return this._confirm
-    })
-    .set(function(value){
-        this._confirm = value
-    })
+// UserSchema.virtual("confirm")
+//     .get(function(){
+//         return this._confirm
+//     })
+//     .set(function(value){
+//         this._confirm = value
+//     })
 
 
-//now i want to compare actuall passwored with the virtual one 
-UserSchema.pre("validate", function(next){
-    if(this.password !== this.confirm){
-        this.invalidate("confirm", "passwords must match")
-    }
-    //if not do the next step (save the user to db or show validation errors)
-    next();
-})
+// UserSchema.pre("validate", function(next){
+//     if(this.password !== this.confirm){
+//         this.invalidate("confirm", "passwords must match")
+//     }
+//     next();
+// })
 
-//but before store the user in db, please hash this password
 UserSchema.pre("save", function(next){
     bcrypt.hash(this.password, 10)
         .then(hashedPassword => {
@@ -77,5 +82,4 @@ UserSchema.pre("save", function(next){
 });
 
 
-const User = mongoose.model("User", UserSchema);
-module.exports = User;
+module.exports.User = mongoose.model("User", UserSchema);

@@ -1,4 +1,4 @@
-const User = require("../models/user.model");
+const {User,Appointment }= require("../models/user.model");
 const bcrypt = require("bcrypt"); 
 const jwt = require("jsonwebtoken");
 const {secret} = require("../config/jwt.config");
@@ -60,5 +60,77 @@ module.exports.logOut= (req,res)=>{
         httpOnly: true,
         maxAge: 0 
     }).json({msg:"the cookie successfully destroy"})
+
+}
+
+
+module.exports.getUser = (request, response) => {
+    User.findOne({_id:request.params.id})
+        .then(user => response.json(user))
+        .catch(err => response.json(err))
+}
+
+module.exports.getAllUsers = (request, response) => {
+    User.find({})
+        .then(users => response.json(users))
+        .catch(err => response.json(err))
+}
+
+module.exports.updateUser = (request, response) => {
+    User.findOneAndUpdate({_id: request.params.id}, request.body, {new:true})
+        .then(updatedUser => response.json(updatedUser))
+        .catch(err => response.json(err))
+}
+
+module.exports.deleteUser = (request, response) => {
+    User.deleteOne({ _id: request.params.id })
+        .then(deleteConfirmation => response.json(deleteConfirmation))
+        .catch(err => response.json(err))
+}
+
+module.exports.newAppointment = (request, response) => {
+  const { id,num } = request.params;
+  Appointment.create({
+    hour: num
+  })
+  .then(appointment => {
+    User.findOne({ _id: id })
+    .then(user => {
+      user.appointments.push(appointment);
+      user.save()
+      .then(() => response.json(appointment))
+      .catch(err => response.json(err));
+    })
+    .catch(err => response.json(err));
+  })
+  .catch(err => response.json(err));
+  
+}
+
+
+module.exports.allAppointments = (request, response) => {
+    Appointment.find({})
+    .then(appointment => response.json(appointment))
+    .catch(err => response.json(err))
+}
+
+module.exports.userAppointments = (request, response) => {
+  const { id } = request.params;
+  User.findOne({ _id: id })
+  .then(user=>{
+    response.json(user.appointments)
+  })
+
+}
+
+module.exports.addNote = (request, response) => {
+  const { id } = request.params;
+  console.log(request.body)
+  const note =request.body.note;
+  Appointment.findOne({ _id: id })
+  .then(appointment=>{
+    appointment.note=note;
+    response.json(appointment)
+  })
 
 }
