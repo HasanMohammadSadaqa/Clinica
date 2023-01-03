@@ -6,7 +6,6 @@ uniqueValidator.defaults.message = 'this email is already used, please try in an
 const AppointmentSchema = new mongoose.Schema({
     date: { type: Date },
     hour: { type: Number },
-    reserved:{type:Boolean},
     note:{type:String}
 }, { timestamps: true });
 module.exports.Appointment = mongoose.model('Appointment', AppointmentSchema);
