@@ -90,8 +90,10 @@ module.exports.deleteUser = (request, response) => {
 
 module.exports.newAppointment = (request, response) => {
   const { id,num } = request.params;
+  const date =request.body.date;
   Appointment.create({
-    hour: num
+    hour: num,
+    date
   })
   .then(appointment => {
     User.findOne({ _id: id })
@@ -114,6 +116,13 @@ module.exports.allAppointments = (request, response) => {
     .catch(err => response.json(err))
 }
 
+module.exports.dateAppointments = (request, response) => {
+    const { date } = request.params;
+    Appointment.find({date:date})
+    .then(appointment => response.json(appointment))
+    .catch(err => response.json(err))
+}
+
 module.exports.userAppointments = (request, response) => {
   const { id } = request.params;
   User.findOne({ _id: id })
@@ -125,7 +134,6 @@ module.exports.userAppointments = (request, response) => {
 
 module.exports.addNote = (request, response) => {
   const { id } = request.params;
-  console.log(request.body)
   const note =request.body.note;
   Appointment.findOne({ _id: id })
   .then(appointment=>{

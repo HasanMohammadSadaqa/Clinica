@@ -11,8 +11,9 @@ module.exports = app =>{
     app.get('/api/users', UserController.getAllUsers);
     app.put('/api/users/:id', UserController.updateUser);
     app.delete('/api/users/:id', UserController.deleteUser);
-    app.post('/api/new/:num/:id', authenticate,UserController.newAppointment);
+    app.post('/api/new/:num/:id', UserController.newAppointment);
     app.post('/api/note/:id',UserController.addNote);
     app.get('/api/appointments', UserController.allAppointments);
+    app.get('/api/appointments/:date', UserController.dateAppointments);
     app.get('/api/appointments/:id', UserController.userAppointments);
 }
