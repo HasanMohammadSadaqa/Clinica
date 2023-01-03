@@ -27,15 +27,13 @@ export const DoctorNav = (props) => {
                 <Link className='page-scroll' to={`/appointments`}> Home </Link>
               </li>
               <li>
-                <Link className='page-scroll' to={`/patients`}> Profile </Link>
+                <Link className='page-scroll' to={`/patientProfile`}> Profile </Link>
               </li>
               <li>
                 <Link className='page-scroll' to={`/patients`}> Book </Link>
               </li>
               <li>
-                <a href='#page-bottom' className='page-scroll'>
-                    Contact Us
-                </a>
+              <button onClick ={onClickprop}className='page-scroll'> Log out </button>
               </li>
             </ul>
           </div>

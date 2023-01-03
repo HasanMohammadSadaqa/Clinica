@@ -17,7 +17,7 @@ const RegForm = (props) => {
     }
     return (
         <div>
-            <h1 className='col-6'>Registration Form</h1>
+            
             <form onSubmit={handleSubmit}>
                 <div className='col-6' >        
                     <div className='form-group'>

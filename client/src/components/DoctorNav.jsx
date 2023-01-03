@@ -31,7 +31,7 @@ export const DoctorNav = (props) => {
               <Link className='page-scroll' to={`/patients`}> Patients </Link>
               </li>
               <li>
-              <button onClick ={onClickprop}className='page-scroll' to={`/patients`}> Log out </button>
+              <button onClick ={onClickprop}className='page-scroll'> Log out </button>
               </li>
             </ul>
           </div>
