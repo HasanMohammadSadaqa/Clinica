@@ -128,17 +128,17 @@ export const Contact = (props) => {
                 <ul>
                   <li>
                     <a href={props.data ? props.data.facebook : '/'}>
-                      <i className='fa fa-facebook'></i>
+                      <i className='btn btn-info fs-3'>Facebook</i>
                     </a>
                   </li>
                   <li>
                     <a href={props.data ? props.data.twitter : '/'}>
-                      <i className='fa fa-twitter'></i>
+                      <i className='btn btn-info fs-3'>Twitter</i>
                     </a>
                   </li>
                   <li>
                     <a href={props.data ? props.data.youtube : '/'}>
-                      <i className='fa fa-youtube'></i>
+                      <i className='btn btn-info fs-3'  >Youtube</i>
                     </a>
                   </li>
                 </ul>
@@ -150,10 +150,7 @@ export const Contact = (props) => {
       <div id='footer'>
         <div className='container text-center'>
           <p>
-            &copy; 2020 Issaaf Kattan React Land Page Template. Design by{' '}
-            <a href='http://www.templatewire.com' rel='nofollow'>
-              TemplateWire
-            </a>
+            &copy; 2023 all rights and trademarks are saved for the compony.
           </p>
         </div>
       </div>
