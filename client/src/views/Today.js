@@ -17,24 +17,10 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
 });
 
 const Today = (props) => {
-    const { users } = props
-
-    const navigate = useNavigate()
-
-    const logOut = (e) => {
-        axios.get("http://localhost:8000/api/user/logout", { withCredentials: true })
-            .then(res => {
-                console.log(res)
-                navigate("/");
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
-
+    const { users, adminLogOut} = props
     return (
         <div>
-            <DoctorNav onClickprop={logOut} />
+            <DoctorNav adminLogOut={adminLogOut} />
             <h1 className={styles.header1 }>Today's Appoitments</h1>
             <div className={styles.table1 }>
                 <MDBTable striped hover>

@@ -31,7 +31,7 @@ const OnePatient = (props) => {
                     <tr>
                         <th className='h3'>Note's Content</th>
                         <th className='h3'>Note's Appointment Date</th>
-                        <th className='h3'>Birth Day</th>
+                        <th className='h3'>BirthDay</th>
                     </tr>
                 </thead>
                 <tbody>
