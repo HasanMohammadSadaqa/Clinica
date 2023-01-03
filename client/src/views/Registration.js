@@ -22,6 +22,7 @@ const Registration = (props) => {
     }
     return (
         <div>
+            <h1 className='col-6'>Registration Form</h1>
             <RegForm initFName="" initLName="" initPhone="" initBD = "" initEmail="" initPass="" initConfirm=""
             onSubmitProp={register} errors={errors} />
         </div>
