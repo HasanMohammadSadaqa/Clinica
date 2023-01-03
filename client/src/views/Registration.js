@@ -1,30 +1,15 @@
 import React, { useState } from 'react'
 import RegForm from '../components/RegForm'
-import axios from 'axios'
-import  { useNavigate } from 'react-router-dom'
+
 
 const Registration = (props) => {
-    // const [users, setUsers] = useState([])
-    const [errors, setErrors] = useState([]);
-    const navigate =useNavigate()
 
-    const register = (newUser)=>{
-        axios.post("http://localhost:8000/api/register", newUser,{withCredentials: true})
-            .then(res =>{
-                console.log(res);
-                if(res.data.errors){
-                    setErrors(res.data.errors)
-                }else{
-                    navigate("/Home");
-                }
-            })
-            .catch(err=> console.log(err))
-    }
+    const {registerNewUser, registrationErrors}= props
     return (
         <div>
             <h1 className='col-6'>Registration Form</h1>
             <RegForm initFName="" initLName="" initPhone="" initBD = "" initEmail="" initPass="" initConfirm=""
-            onSubmitProp={register} errors={errors} />
+            onSubmitProp={registerNewUser} errors={registrationErrors} />
         </div>
     )
 }
