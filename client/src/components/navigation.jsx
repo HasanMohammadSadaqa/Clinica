@@ -13,7 +13,7 @@ export const Navigation = (props) => {
 
           </button>
           <a className='navbar-brand page-scroll' href='#page-top'>
-            React Landing Page
+            Clinic
           </a>{' '}
         </div>
 
