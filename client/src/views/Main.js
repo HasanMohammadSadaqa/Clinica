@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-
-
 import { Routes, Route } from 'react-router-dom'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
@@ -15,7 +13,7 @@ import Login from './Login';
 import UpdateProfile from './UpdateProfile'
 import ViewNote from './ViewNote'
 import YourAppointments from './YourAppointments'
-import Osama from './Osama'
+
 
 
 
@@ -92,33 +90,17 @@ const Main = () => {
     return (
         <div>
             <Routes>
-
                 <Route path={`/`} element={<Landing  />}></Route>
-    
                 <Route path={`/allPatients`} element={<Allpatients  />}></Route>
                 <Route path={`/onePatient/:id`} element={<OnePatient  />}></Route>
                 <Route path={`/note/:id`} element={<Note  />}></Route>
-
-                <Route path={`/yourAppointments`} element={<YourAppointments  />}></Route>
+                <Route path={`/yourAppointments`} element={<YourAppointments userLogOut={userLogOut} />}></Route>
                 <Route path={`/updateProfile/:id`} element={<UpdateProfile  />}></Route>
                 <Route path={`/viewNote/:id`} element={<ViewNote  />}></Route>
-                <Route path={`/osama`} element={<Osama/>} />
-
-
-
- 
-
-
-
                 <Route path={`/today`} element={<Today adminLogOut={AdminLogOut}/>}></Route>
-
-
-
-
                 <Route path={`/user/registration`} element={<Registration registerNewUser={userRegister} registrationErrors={registrationErrors} />} />
                 <Route path={`/user/login`} element={<Login loginUserAdmin={login} loginErrors={loginErrors} />} />
-                <Route path={`/user/profile`} element={<UserProfile userLogOut={userLogOut}/>} />
-
+                {/* <Route path={`/user/profile`} element={<UserProfile userLogOut={userLogOut}/>} /> */}
             </Routes>
         </div>
     )

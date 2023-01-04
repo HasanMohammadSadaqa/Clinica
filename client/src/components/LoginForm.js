@@ -13,12 +13,12 @@ const LoginForm = (props) => {
     return (
         <div>
             <h3 className='col-12 text-center m-3'>Login</h3>
-            {errors ? <p className='text-danger col-6'>{errors}</p> : ""}
             <form onSubmit={handleLoginSubmit} className={styles.center}>
                 <div className='col-6'>
                     <div className='form-group'>
                         <label className='text-white'>Email:</label>
                         <input type="email" className='form-control' name='email' onChange={(e) => setEmail(e.target.value)} value={email} />
+                        {errors ? <p className='text-dark col-6'>{errors}</p> : ""}
                     </div>
                     <div className='form-group'>
                         <label className='text-white'>Password:</label>
