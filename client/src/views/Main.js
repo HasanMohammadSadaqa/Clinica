@@ -35,7 +35,7 @@ const Main = () => {
                     setRegistrationErrors(res.data.errors)
                 } else {
                     setUsers([...users, newUser])
-                    navigate("/user/profile");
+                    navigate("/yourAppointments");
                 }
             })
             .catch(err => console.log(err))
@@ -55,7 +55,7 @@ const Main = () => {
                 }
                 else if (res.data.msg == "success!") {
                     // setLoggedUser([...loggedUser, loggedInUser])
-                    navigate(`/user/profile`)
+                    navigate(`/yourAppointments`)
                 } else {
                     setLoginErrors(res.data.msg)
                 }
