@@ -14,10 +14,10 @@ const FormComp = (props) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className={styles.center}>
+      <form onSubmit={handleSubmit} className={styles.centerNoteForm}>
         {errors.map((err, index) => <p key={index}>{err}</p>)}
         
-        <p className={styles.fix}>
+        <p className="mb-4">
           <textarea rows="6" cols="100" type="text" onChange={(e) => setNote(e.target.value)} value={note} />
         </p>
 

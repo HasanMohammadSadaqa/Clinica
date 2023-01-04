@@ -1,6 +1,9 @@
+// import styles from './styles.module.css'
+
 export const Navigation = (props) => {
   return (
-    <nav id='menu' className='navbar navbar-default navbar-fixed-top'>
+    <div >
+    <nav id='menu' className='navbar navbar-default navbar-fixed-top position-fixed '>
       <div className='d-flex'>
         <div className='navbar-header'>
           <button
@@ -13,7 +16,9 @@ export const Navigation = (props) => {
 
           </button>
           <a className='navbar-brand page-scroll' href='#page-top'>
-            Clinic
+
+            Clinica
+
           </a>{' '}
         </div>
 
@@ -22,11 +27,6 @@ export const Navigation = (props) => {
           id='bs-example-navbar-collapse-1'
         >
           <ul className='nav navbar-nav navbar-right d-inline'>
-            <li>
-              <a href='#features' className='page-scroll'>
-                Features
-              </a>
-            </li>
             <li>
               <a href='#about' className='page-scroll'  >
                 About
@@ -66,5 +66,6 @@ export const Navigation = (props) => {
         </div>
       </div>
     </nav>
+    </div>
   )
 }

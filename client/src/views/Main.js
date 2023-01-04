@@ -91,7 +91,10 @@ const Main = () => {
         <div>
             <Routes>
                 <Route path={`/`} element={<Landing  />}></Route>
-                <Route path={`/allPatients`} element={<Allpatients  />}></Route>
+
+    
+                <Route path={`/allPatients`} element={<Allpatients adminLogOut={AdminLogOut} />}></Route>
+
                 <Route path={`/onePatient/:id`} element={<OnePatient  />}></Route>
                 <Route path={`/note/:id`} element={<Note  />}></Route>
                 <Route path={`/yourAppointments`} element={<YourAppointments userLogOut={userLogOut} />}></Route>

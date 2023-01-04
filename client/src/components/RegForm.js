@@ -76,7 +76,7 @@ const RegForm = (props) => {
                         <input type="submit" value="Sign Up" className='btn btn-primary mt-3'/>
                 </div>
                 <div>
-                    <img src='../../img/pills2.jpg' className='rounded  col-8 shadow'></img>
+                    <img src='../../img/pills2.jpg' className='rounded  col-8 shadow mt-4'></img>
                 </div>
             </form>
         </div>
