@@ -49,4 +49,4 @@ const PatientNav = (props) => {
     )
   }
 
-  export default PatientNav
+  export default PatientNav;

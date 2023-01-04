@@ -1,14 +1,14 @@
 
-// import React, { useEffect, useState } from 'react'
-// import axios from 'axios'
-// import  { useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import  { useNavigate } from 'react-router-dom'
 
-// import { PatientNav } from "../components/PatientNav";
-// import { Link } from 'react-router-dom';
+import PatientNav from '../components/PatientNav';
+import { Link } from 'react-router-dom';
 
-// import { MDBTable } from 'mdb-react-ui-kit';
-// import styles from './styles.module.css'
-// import "../App.css";
+import { MDBTable } from 'mdb-react-ui-kit';
+import styles from './styles.module.css'
+import "../App.css";
 
 const UserProfile = (props) => {
   const { userLogOut } = props
@@ -41,4 +41,4 @@ const UserProfile = (props) => {
 }
 
 
-// export default UserProfile
+export default UserProfile
