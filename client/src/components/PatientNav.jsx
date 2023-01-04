@@ -29,10 +29,10 @@ const PatientNav = (props) => {
           >
             <ul className='nav navbar-nav navbar-right d-inline'>
               <li>
-                <Link className='page-scroll' to={`/appointments`}> Home </Link>
+                <Link className='page-scroll' to={`/yourAppointments`}> Home </Link>
               </li>
               <li>
-                <Link className='page-scroll' to={`/patientProfile`}> Profile </Link>
+                <Link className='page-scroll' to={`/user/profile`}> Profile </Link>
               </li>
               <li>
                 <Link className='page-scroll' to={`/patients`}> Book </Link>

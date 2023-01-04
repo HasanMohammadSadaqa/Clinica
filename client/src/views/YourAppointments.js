@@ -17,45 +17,45 @@ import PatientNav from '../components/PatientNav';
 // });
 
 const YourAppointments = (props) => {
-    const {userId} = props
-
-    const [LoggedInUser, setLoggedInUser] = useState("")
+    const { userLogOut } = props
+    const [appointments, setAppointments] = useState([])
+    const [LoggedInUser, setLoggedInUser] = useState({})
     const [loaded, setLoaded] = useState(false)
 
     //method to get a looged in user and catch it by id
     useEffect(() => {
-
-
-
         axios.get("http://localhost:8000/api/user/loggedIn", { withCredentials: true })
             .then(res => {
+                console.log("Hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii")
                 console.log(res)
-                console.log("hiiiiiiiiiii")
                 setLoggedInUser(res.data.loggedUser)
+                console.log(LoggedInUser)
                 setLoaded(true)
+                    axios.get('http://localhost:8000/api/appointments/' + res.data.loggedUser._id)
+                    .then((res) => {
+                        setAppointments(res.data);
+                        console.log(res)
+                    })
+                    .catch(err => {
+                        
+                        console.log(err)})
             })
             .catch(err => {
-                console.log(err)
+                console.log(err);
             })
+
     }, [])
+
+
 
     // const { oneUser } = props
     // const { id } = useParams()
     // console.log()
-    const [appointments, setAppointments] = useState([])
     // if (loaded){
         
     // }
     // console.log("hosamaaaaaaaaaaaaaaaaaaaaaaaa")
-    useEffect(() => {
-        console.log(userId)
-        axios.get('http://localhost:8000/api/appointments/id/' + userId)
-            .then((res) => {
-                setAppointments(res.data);
-                console.log("oooooooooooooooooooooooooooooooo")
-            })
-            .catch(err => console.log(err))
-    }, [])
+
 
 
 
@@ -66,8 +66,9 @@ const YourAppointments = (props) => {
         <div>
             osama 
             <h1>{LoggedInUser._id}</h1>
-            {/* <PatientNav />
-            <h1 className={styles.header1}> {appointments.user.firstName} {appointments.user.lastName} Appointments:</h1>
+            <PatientNav userLogOut={userLogOut}/>
+            {/* {LoggedInUser} */}
+            <h1 className={styles.header1}> {LoggedInUser.firstName} {LoggedInUser.lastName} Appointments:</h1>
             <div className={styles.table1}>
                 <MDBTable striped hover>
                     <thead>
@@ -91,7 +92,7 @@ const YourAppointments = (props) => {
                         })}
                     </tbody>
                 </MDBTable>
-            </div> */}
+            </div>
         </div>
     )
 }
