@@ -95,7 +95,7 @@ const Main = () => {
 
                 <Route path={`/`} element={<Landing  />}></Route>
     
-                <Route path={`/allPatients`} element={<Allpatients  />}></Route>
+                <Route path={`/allPatients`} element={<Allpatients adminLogOut={AdminLogOut} />}></Route>
                 <Route path={`/onePatient/:id`} element={<OnePatient  />}></Route>
                 <Route path={`/note/:id`} element={<Note  />}></Route>
 

@@ -24,7 +24,7 @@ const logOut = (e) => {
 
   return (
     <div>
-            <PatientNav/>
+            <h1>{}</h1>
 
     </div >
   )

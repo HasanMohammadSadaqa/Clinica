@@ -12,10 +12,10 @@ const LoginForm = (props) => {
     }
     return (
         <div>
-            <h3 className='col-12 text-center m-3'>Login</h3>
+            <h3 className='col-12 text-center m-3'>Login To Your Account</h3>
             {errors ? <p className='text-danger col-6'>{errors}</p> : ""}
             <form onSubmit={handleLoginSubmit} className={styles.center}>
-                <div className='col-6'>
+                <div className='col-6 mt-5'>
                     <div className='form-group'>
                         <label className='text-white'>Email:</label>
                         <input type="email" className='form-control' name='email' onChange={(e) => setEmail(e.target.value)} value={email} />
@@ -26,8 +26,8 @@ const LoginForm = (props) => {
                     </div>
                     <input type="submit" value="Login" className='btn btn-primary mt-3' />
                     {/* <button className='btn btn-primary' onClick={registration}>Are you register?</button> */}
-                    <div>
-                    <a href='/user/registration'  className='text-white mt-3'>are you register?</a>
+                    <div className='text-white mt-5'>
+                        <a href='/user/registration'  className='text-white mt-3'>Don't have an Account yet?</a>
                     </div>
                 </div>
                 <div>
