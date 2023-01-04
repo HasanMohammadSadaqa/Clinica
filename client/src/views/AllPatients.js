@@ -9,13 +9,41 @@ import { MDBTable } from 'mdb-react-ui-kit';
 import styles from './styles.module.css'
 import "../App.css";
 
-export const scroll = new SmoothScroll('a[href*="#"]', {
-    speed: 1000,
-    speedAsDuration: true,
-});
+import { useEffect } from 'react'
+import { useState } from 'react'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+
+// export const scroll = new SmoothScroll('a[href*="#"]', {
+//     speed: 1000,
+//     speedAsDuration: true,
+// });
 
 const Allpatients = (props) => {
-    const { allUsers } = props
+    const navigate = useNavigate()
+
+
+    const[users,setUsers]=useState([])
+    useEffect(() => {
+        axios.get(`http://localhost:8000/api/users`)
+            .then((res) =>{setUsers(res.data);
+            console.log(res.data)
+            })
+            
+            .catch(err=> console.log(err))
+    }, [])
+
+
+    const logOut = (e) => {
+        axios.get("http://localhost:8000/api/user/logout", { withCredentials: true })
+            .then(res => {
+
+                navigate("/");
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
 
 
     return (
@@ -32,15 +60,13 @@ const Allpatients = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {allUsers?.map((user, id) => {
+                    {users?.map((user, id) => {
                         return (
-                            <div>
                                 <tr>
-                                    <td key={id} className='h3'> <Link to={`/${user._id}`} >{user.firstName} {user.lastName} </Link></td>
-                                    <td key={id} className='h3'> {user.gender} </td>
-                                    <td key={id} className='h3'> {user.birthDay}</td>
+                                    <td key={id} className='h3'> <Link to={`/onePatient/${user._id}`} >{user.firstName} {user.lastName} </Link></td>
+                                    {/* <td key={id} className='h3'> {user.gender} </td> */}
+                                    <td key={id} className='h3'> {user.birthday}</td>
                                 </tr>
-                            </div>
                         )
                     })}
                 </tbody>

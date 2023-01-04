@@ -1,6 +1,10 @@
-import { Link } from 'react-router-dom'
-export const PatientNav = (props) => {
+
+import { Link, Navigate } from 'react-router-dom'
+
+const PatientNav = (props) => {
+  
   const {userLogOut} = props
+
     return (
       <nav id='menu' className='navbar navbar-default navbar-fixed-top'>
         <div className='d-flex'>
@@ -34,7 +38,9 @@ export const PatientNav = (props) => {
                 <Link className='page-scroll' to={`/patients`}> Book </Link>
               </li>
               <li>
+
               <button onClick={userLogOut} className='page-scroll'> Log out </button>
+
               </li>
             </ul>
           </div>
@@ -42,4 +48,5 @@ export const PatientNav = (props) => {
       </nav>
     )
   }
-  
+
+  export default PatientNav
