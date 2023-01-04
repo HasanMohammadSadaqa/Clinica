@@ -118,9 +118,12 @@ module.exports.allAppointments = (request, response) => {
 }
 
 module.exports.dateAppointments = (request, response) => {
-    const { date } = request.params;
+    const { date } = request.body;
     Appointment.find({date:date})
-    .then(appointment => response.json(appointment))
+    
+    .then(appointments => {response.json(appointments);
+        console.log(appointments)
+       })
     .catch(err => response.json(err))
 }
 
