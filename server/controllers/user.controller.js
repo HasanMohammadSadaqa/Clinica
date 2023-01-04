@@ -129,9 +129,10 @@ module.exports.dateAppointments = (request, response) => {
 
 module.exports.userAppointments = (request, response) => {
   const { id } = request.params;
-  User.findOne({ _id: id }).populate('User')
+  User.findOne({ _id: id })
   .then(user=>{
-    response.json(user.appointments)
+    console.log(user);
+    response.json(user.appointments);
   })
 
 }

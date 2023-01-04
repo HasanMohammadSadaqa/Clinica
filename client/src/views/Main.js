@@ -95,11 +95,11 @@ const Main = () => {
     
                 <Route path={`/allPatients`} element={<Allpatients adminLogOut={AdminLogOut} />}></Route>
 
-                <Route path={`/onePatient/:id`} element={<OnePatient  />}></Route>
-                <Route path={`/note/:id`} element={<Note  />}></Route>
+                <Route path={`/onePatient/:id`} element={<OnePatient adminLogOut={AdminLogOut} />}></Route>
+                <Route path={`/note/:id`} element={<Note adminLogOut={AdminLogOut} />}></Route>
                 <Route path={`/yourAppointments`} element={<YourAppointments userLogOut={userLogOut} />}></Route>
-                <Route path={`/updateProfile/:id`} element={<UpdateProfile  />}></Route>
-                <Route path={`/viewNote/:id`} element={<ViewNote  />}></Route>
+                <Route path={`/updateProfile/:id`} element={<UpdateProfile userLogOut={userLogOut} />}></Route>
+                <Route path={`/viewNote/:id`} element={<ViewNote userLogOut={userLogOut} />}></Route>
                 <Route path={`/today`} element={<Today adminLogOut={AdminLogOut}/>}></Route>
                 <Route path={`/user/registration`} element={<Registration registerNewUser={userRegister} registrationErrors={registrationErrors} />} />
                 <Route path={`/user/login`} element={<Login loginUserAdmin={login} loginErrors={loginErrors} />} />

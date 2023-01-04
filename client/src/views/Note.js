@@ -32,7 +32,7 @@ const Note = () => {
     axios.post(`http://localhost:8000/api/note/`+id, note)
       .then((res) => {
       console.log(res);
-    //   navigate(`/today`);
+      navigate(`/today`);
     })
       .catch(err => console.log(err))
 
