@@ -4,11 +4,13 @@ import styles from './styles.module.css'
 export const DoctorNav = (props) => {
   const {adminLogOut} =props
     return (
+
         <div className={styles.nav1}>
           <div className=''>
             <a className={styles.nav2} href='/'>
               Clinica
             </a>
+
           </div>
   
           <div className=' ' id=''>

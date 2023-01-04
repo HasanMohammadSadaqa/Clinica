@@ -16,7 +16,9 @@ export const Navigation = (props) => {
 
           </button>
           <a className='navbar-brand page-scroll' href='#page-top'>
+
             Clinica
+
           </a>{' '}
         </div>
 

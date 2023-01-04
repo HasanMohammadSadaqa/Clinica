@@ -4,12 +4,14 @@ import styles from './styles.module.css'
 const PatientNav = (props) => {
   const {userLogOut} = props
     return (
+
       <div className={styles.nav1}>
         <div className=''>
           <a className={styles.nav2} href='/'>
             Clinica
           </a>
         </div>
+
 
         <div className=' ' id=''>
           <div className={styles.nav4}>

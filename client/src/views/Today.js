@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
-
 import { DoctorNav } from "../components/DoctorNav";
 import { Link } from 'react-router-dom';
-
-
-import SmoothScroll from "smooth-scroll";
 import { MDBTable } from 'mdb-react-ui-kit';
 import styles from './styles.module.css'
 import "../App.css";
@@ -15,12 +10,11 @@ import "../App.css";
 
 const Today = (props) => {
 
-    const { users, adminLogOut} = props
-        const navigate = useNavigate()
-    const[appointments,setAppontments]=useState([])
+    const {adminLogOut} = props
+    const[appointments,setAppointment]=useState([])
     useEffect(() => {
         axios.get(`http://localhost:8000/api/appointments`)
-            .then((res) =>{setAppontments(res.data);
+            .then((res) =>{setAppointment(res.data);
             console.log(res.data)
             })
             .catch(err=> console.log(err))
