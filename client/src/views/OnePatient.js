@@ -59,6 +59,10 @@ const OnePatient = (props) => {
                         <th className='h3'>Note's Content</th>
                         <th className='h3'>Note's Appointment Date</th>
 
+
+
+                        <th className='h3'>BirthDay</th>
+
                     </tr>
                 </thead>
                 <tbody>

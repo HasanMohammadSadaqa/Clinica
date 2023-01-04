@@ -14,7 +14,9 @@ import "../App.css";
 
 
 const Today = (props) => {
-    const navigate = useNavigate()
+
+    const { users, adminLogOut} = props
+        const navigate = useNavigate()
     const[appointments,setAppontments]=useState([])
     useEffect(() => {
         axios.get(`http://localhost:8000/api/appointments`)
@@ -23,24 +25,11 @@ const Today = (props) => {
             })
             .catch(err=> console.log(err))
     }, [])
-    // const { users } = props
-
-
-    const logOut = (e) => {
-        axios.get("http://localhost:8000/api/user/logout", { withCredentials: true })
-            .then(res => {
-
-                navigate("/");
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
-
     return (
         <div>
-            <DoctorNav onClickprop={logOut} />
-            <h1 className={styles.header1 }>Today's Appointments</h1>
+            <DoctorNav adminLogOut={adminLogOut} />
+            <h1 className={styles.header1 }>Today's Appoitments</h1>
+
             <div className={styles.table1 }>
                 <MDBTable striped hover>
                 <thead>
