@@ -19,6 +19,12 @@ require("./config/mongoose.config");
 require("./routes/user.routes")(app);
 
 //let express listen to the port
-app.listen(8000, () => {
+const server=app.listen(8000, () => {
     console.log("Listening at Port 8000")
 })
+
+// const io = require('socket.io')(server, { cors: true });
+
+// io.on("connection",socket=>{
+
+// })

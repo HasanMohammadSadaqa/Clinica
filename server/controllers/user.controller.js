@@ -111,15 +111,18 @@ module.exports.newAppointment = (request, response) => {
 
 
 module.exports.allAppointments = (request, response) => {
-    Appointment.find({})
+    Appointment.find({}).populate('user')
     .then(appointment => response.json(appointment))
     .catch(err => response.json(err))
 }
 
 module.exports.dateAppointments = (request, response) => {
-    const { date } = request.params;
+    const { date } = request.body;
     Appointment.find({date:date})
-    .then(appointment => response.json(appointment))
+    
+    .then(appointments => {response.json(appointments);
+        console.log(appointments)
+       })
     .catch(err => response.json(err))
 }
 
