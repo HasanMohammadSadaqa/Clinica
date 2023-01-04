@@ -24,7 +24,7 @@ const OnePatient = (props) => {
     console.log(id)
     const[appointments,setAppointments]=useState([])
     useEffect(() => {
-        axios.get('http://localhost:8000/api/appointments/id/'+id)
+        axios.get('http://localhost:8000/api/appointments/'+id)
             .then((res) =>{setAppointments(res.data);
             console.log('http://localhost:8000/api/appointments/'+id)
             })
@@ -51,18 +51,13 @@ const OnePatient = (props) => {
     return (
         <div>
             <DoctorNav onClickprop={logOut} />
-            <h1 className={styles.header1 }> {appointments.user.firstName} {appointments.user.lastName} Appointments:</h1>
+            {/* <h1 className={styles.header1 }> {appointments.user.firstName} {appointments.user.lastName} Appointments:</h1> */}
             <div className={styles.table1 }>
                 <MDBTable striped hover>
                 <thead>
                     <tr>
                         <th className='h3'>Note's Content</th>
                         <th className='h3'>Note's Appointment Date</th>
-
-
-
-                        <th className='h3'>BirthDay</th>
-
                     </tr>
                 </thead>
                 <tbody>
