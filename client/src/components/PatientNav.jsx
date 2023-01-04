@@ -1,5 +1,7 @@
-import { Link } from 'react-router-dom'
-export const DoctorNav = (props) => {
+import { Link, Navigate } from 'react-router-dom'
+
+const PatientNav = (props) => {
+  
     return (
       <nav id='menu' className='navbar navbar-default navbar-fixed-top'>
         <div className='d-flex'>
@@ -33,7 +35,7 @@ export const DoctorNav = (props) => {
                 <Link className='page-scroll' to={`/patients`}> Book </Link>
               </li>
               <li>
-              <button onClick ={onClickprop}className='page-scroll'> Log out </button>
+              {/* <button onClick ={onClickprop}className='page-scroll'> Log out </button> */}
               </li>
             </ul>
           </div>
@@ -41,4 +43,5 @@ export const DoctorNav = (props) => {
       </nav>
     )
   }
-  
+
+  export default PatientNav

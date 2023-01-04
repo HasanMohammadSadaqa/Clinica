@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
@@ -11,20 +11,25 @@ import { MDBTable } from 'mdb-react-ui-kit';
 import styles from './styles.module.css'
 import "../App.css";
 
-export const scroll = new SmoothScroll('a[href*="#"]', {
-    speed: 1000,
-    speedAsDuration: true,
-});
+
 
 const Today = (props) => {
-    const { users } = props
-
     const navigate = useNavigate()
+    const[appointments,setAppontments]=useState([])
+    useEffect(() => {
+        axios.get(`http://localhost:8000/api/appointments`)
+            .then((res) =>{setAppontments(res.data);
+            console.log(res.data)
+            })
+            .catch(err=> console.log(err))
+    }, [])
+    // const { users } = props
+
 
     const logOut = (e) => {
         axios.get("http://localhost:8000/api/user/logout", { withCredentials: true })
             .then(res => {
-                console.log(res)
+
                 navigate("/");
             })
             .catch(err => {
@@ -35,7 +40,7 @@ const Today = (props) => {
     return (
         <div>
             <DoctorNav onClickprop={logOut} />
-            <h1 className={styles.header1 }>Today's Appoitments</h1>
+            <h1 className={styles.header1 }>Today's Appointments</h1>
             <div className={styles.table1 }>
                 <MDBTable striped hover>
                 <thead>
@@ -47,15 +52,13 @@ const Today = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {users?.map((user, id) => {
+                    {appointments?.map((appointment, i) => {
                         return (
-                            <div>
                                 <tr>
-                                    <td key={id} className='h3'> <Link to={`/${user._id}`} >{user.firstName} {user.lastName} </Link></td>
-                                    <td key={id} className='h3'> {user.appointment.hour} </td>
-                                    <td key={id} className='h3'> <Link to={`/${user.appointment._id}/note`} >Make a Note</Link></td>
+                                    <td key={i} className='h3'> <Link to={`/onePatient/${appointment.user._id}`} >{appointment.user.firstName} {appointment.user.lastName} </Link></td>
+                                    <td key={i} className='h3'> {appointment.hour+2} :00</td>
+                                    <td key={i} className='h3'> <Link to={`/note/${appointment._id}`} >Make a Note</Link></td>
                                 </tr>
-                            </div>
                         )
                     })}
                 </tbody>

@@ -19,7 +19,7 @@ const Login = (props) => {
                         navigate(`/today`)
                     }
                 else if(res.data.msg == "success!"){
-                    navigate(`/user/profile`)
+                    navigate("/osama");
                 }else{
                     setErrors(res.data.msg)
                 }

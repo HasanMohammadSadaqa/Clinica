@@ -93,7 +93,8 @@ module.exports.newAppointment = (request, response) => {
   const date =request.body.date;
   Appointment.create({
     hour: num,
-    date
+    date,
+    user:id
   })
   .then(appointment => {
     User.findOne({ _id: id })
@@ -111,7 +112,7 @@ module.exports.newAppointment = (request, response) => {
 
 
 module.exports.allAppointments = (request, response) => {
-    Appointment.find({})
+    Appointment.find({}).populate('user')
     .then(appointment => response.json(appointment))
     .catch(err => response.json(err))
 }
@@ -133,11 +134,15 @@ module.exports.userAppointments = (request, response) => {
 }
 
 module.exports.addNote = (request, response) => {
-  const { id } = request.params;
-  const note =request.body.note;
-  Appointment.findOne({ _id: id })
-  .then(appointment=>{
+    const { id } = request.params;
+    console.log(id+"=========================================================");
+
+    const note =request.body.note;
+    Appointment.findOne({ _id: id })
+    .then(appointment=>{
+      console.log(appointment+"=========================================================");
     appointment.note=note;
+    appointment.save();
     response.json(appointment)
   })
 

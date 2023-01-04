@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import styles from './styles.module.css'
 
 const LoginForm = (props) => {
     const { initEmail, initPassword, onSubmitLoginProp, errors } = props
@@ -11,23 +12,26 @@ const LoginForm = (props) => {
     }
     return (
         <div>
-            <h1 className='col-6'>Login Form</h1>
+            <h3 className='col-12 text-center m-3'>Login</h3>
             {errors ? <p className='text-danger col-6'>{errors}</p> : ""}
-            <form onSubmit={handleLoginSubmit}>
+            <form onSubmit={handleLoginSubmit} className={styles.center}>
                 <div className='col-6'>
                     <div className='form-group'>
-                        <label>Email:</label>
+                        <label className='text-white'>Email:</label>
                         <input type="email" className='form-control' name='email' onChange={(e) => setEmail(e.target.value)} value={email} />
                     </div>
                     <div className='form-group'>
-                        <label>Password:</label>
+                        <label className='text-white'>Password:</label>
                         <input type="password" className='form-control' name='password' onChange={(e) => setPassword(e.target.value)} value={password} />
                     </div>
-                    <input type="submit" value="Login" className='btn btn-primary' />
+                    <input type="submit" value="Login" className='btn btn-primary mt-3' />
                     {/* <button className='btn btn-primary' onClick={registration}>Are you register?</button> */}
                     <div>
-                    <a href='/user/registration'>are you register?</a>
+                    <a href='/user/registration'  className='text-white mt-3'>are you register?</a>
                     </div>
+                </div>
+                <div>
+                    <img src='../../img/pills3.jpg' className='rounded  col-8 shadow'></img>
                 </div>
             </form>
         </div>
