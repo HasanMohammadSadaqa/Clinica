@@ -8,6 +8,7 @@ const AppointmentSchema = new mongoose.Schema({
     hour: { type: Number },
     note:{type:String},
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+
 }, { timestamps: true });
 module.exports.Appointment = mongoose.model('Appointment', AppointmentSchema);
 
@@ -35,6 +36,10 @@ const UserSchema = new mongoose.Schema({
         required: [true, "Phone is required"],
         minlength: [10, "your phone must be at least 10 characters"]
     },
+    // gender:{
+    //     type: Boolean,
+    //     required:["Gender is required"],
+    // },
     birthday: {
         type: Date,
         required:["Birthday is required"],

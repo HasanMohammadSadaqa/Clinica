@@ -14,7 +14,8 @@ module.exports = app =>{
     app.post('/api/new/:num/:id', UserController.newAppointment);
     app.post('/api/note/:id',UserController.addNote);
     app.get('/api/appointments', UserController.allAppointments);
-    // app.post('/api/appointments/date', ()=>console.log("==========================="));
+    
     app.post('/api/appointments/date', UserController.dateAppointments);
     app.get('/api/appointments/:id', UserController.userAppointments);
+
 }

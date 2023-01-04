@@ -1,0 +1,184 @@
+{
+  "Header": {
+    "title": "WHAT MAKES US BETTER, MAKES YOU BETTER",
+    "paragraph": "Healthcare doesn't have to be difficult. We're constantly finding ways to make it easy so that you can get Better - and stay that way.."
+  },
+  "About": {
+    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "Why": [
+      "#1 Clinic in the North in 2022",
+      "Extensive and varied experience in many fields",
+      "9 health centers spread across the states",
+      "Specialist doctors with the highest scientific centers"
+    ],
+    "Why2": [
+      "Continuous care even after the appointment ends",
+      "Competitive prices and the best in the market",
+      "Get the home page in Scholars Magazine in 2022",
+      "Maintaining the highest standards of privacy"
+    ]
+  },
+  "Gallery": [
+    {
+      "title": "California",
+      "largeImage": "img/portfolio/01-small.jpg",
+      "smallImage": "img/portfolio/01-small.jpg"
+    },
+    {
+      "title": "Newyork",
+      "largeImage": "img/portfolio/02-small.jpg",
+      "smallImage": "img/portfolio/02-small.jpg"
+    },
+    {
+      "title": "Washington DC",
+      "largeImage": "img/portfolio/03-small.jpg",
+      "smallImage": "img/portfolio/03-small.jpg"
+    },
+    {
+      "title": "Los Angelos",
+      "largeImage": "img/portfolio/04-small.jpg",
+      "smallImage": "img/portfolio/04-small.jpg"
+    },
+    {
+      "title": "Mexico City",
+      "largeImage": "img/portfolio/05-small.jpg",
+      "smallImage": "img/portfolio/05-small.jpg"
+    },
+    {
+      "title": "Utah",
+      "largeImage": "img/portfolio/06-small.jpg",
+      "smallImage": "img/portfolio/06-small.jpg"
+    },
+    {
+      "title": "Illinois",
+      "largeImage": "img/portfolio/07-small.jpg",
+      "smallImage": "img/portfolio/07-small.jpg"
+    },
+    {
+      "title": "Alabama",
+      "largeImage": "img/portfolio/08-small.jpg",
+      "smallImage": "img/portfolio/08-small.jpg"
+    },
+    {
+      "title": "Kansas",
+      "largeImage": "img/portfolio/09-small.jpg",
+      "smallImage": "img/portfolio/09-small.jpg"
+    }
+  ],
+  "Services": [
+    {
+      "icon": "fa fa-stethoscope",
+      "name": "Comprehensive medical examinations",
+      "text": "All comprehensive examinations such as blood tests and various vitamins are provided."
+    },
+    {
+      "icon": "fa fa-heartbeat",
+      "name": "Caring for heart patients",
+      "text": "Provide all necessary medical examinations for heart patients with special care."
+    },
+    {
+      "icon": "fa fa-medkit",
+      "name": "Urgent Medical Treatment",
+      "text": "Providing fair medical assistance for all emergency cases as fractures and burns."
+    },
+    {
+      "icon": "fa fa-wheelchair",
+      "name": "People With Special Needs",
+      "text": "We provide special and distinguished care for people with special needs of all categories."
+    },
+    {
+      "icon": "fa fa-hospital-o",
+      "name": "9 Health Centers",
+      "text": "We have many health centers, which are 9 health centers, which allows a wider coverage of all regions."
+    },
+    {
+      "icon": "fa fa-ambulance",
+      "name": "Responsiveness",
+      "text": "All of our centers are connected with a wide ambulance network that allows for quick response."
+    }
+  ],
+  "Testimonials": [
+    {
+      "img": "img/testimonials/01.jpg",
+      "text": "The services that I receive is excellent. Dr.John and the staff are friendly and ensure that I am properly informed about my health and care. I would have no qualms in recommending them to friendly and friends.",
+      "name": "Justin Blake"
+    },
+    {
+      "img": "img/testimonials/02.jpg",
+      "text": "Dr. Mike is incredible. Not only has she taken great care of my health, but also she is lovely to speak with at every appointment. It’s rare to find a doctor that combines such personal touches and care for a patient as a person with outstanding quality of medical care. I highly recommend becoming her patient!.",
+      "name": "Johnathan Jodu"
+    },
+    {
+      "img": "img/testimonials/03.jpg",
+      "text": "This practice is terrific. Dr. Jane combines expertise and a willingness to listen and discuss. She’s also an excellent surgeon. Also, the staff is very friendly and professional. I’ve never had to wait more than a few minutes when I arrive on time for an appointment.",
+      "name": "Tom Clark"
+    },
+    {
+      "img": "img/testimonials/04.jpg",
+      "text": "Dr. Karen gets it. From his excellent treatment, curiosity, investigative mind and ability to connect, you know where you stand immediately and what next steps look like..\"",
+      "name": "Kloe Brimston"
+    },
+    {
+      "img": "img/testimonials/05.jpg",
+      "text": "I recently had my first visit with Dr. Jane and it was a delight. She immediately made me feel very comfortable and it felt as if she had been my doctor for years. I am very happy to have found a primary care physician that I feel I can trust and connect with.",
+      "name": "Breech Stewart"
+    },
+    {
+      "img": "img/testimonials/06.jpg",
+      "text": "Always on time, compassionate, empathetic, easy to talk to and relates exceptionally well. Hands-down the most effective and efficient doctor visits I’ve had (a patient for 3 years). Friendly, helpful staff as well.",
+      "name": "Carla Ray"
+    }
+  ],
+  "Team": [
+    {
+      "img": "img/team/01.jpg",
+      "name": "Dr.John Doe",
+      "job": "Cardiologist"
+    },
+    {
+      "img": "img/team/02.jpg",
+      "name": "Dr.Mike Doe",
+      "job": "Orthopedic Doctor"
+    },
+    {
+      "img": "img/team/03.jpg",
+      "name": "Dr.Jane Doe",
+      "job": "Internist"
+    },
+    {
+      "img": "img/team/04.jpg",
+      "name": "Dr.Karen Doe",
+      "job": "General Doctor"
+    }
+  ],
+  "Contact": {
+    "address": "4321 California St, San Francisco, CA 12345 ",
+    "phone": "+1 123 456 1234",
+    "email": "info.clinic@company.com",
+    "facebook": "facebook.com/clinic",
+    "twitter": "twitter.com/clinic",
+    "youtube": "youtube.com/clinic"
+  },
+  "Features": [
+    {
+      "icon": "fa fa-comments-o",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    },
+    {
+      "icon": "fa fa-bullhorn",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    },
+    {
+      "icon": "fa fa-group",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    },
+    {
+      "icon": "fa fa-magic",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    }
+  ]
+}
