@@ -2,11 +2,14 @@ import React from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useState,useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 const excludeElements = (arr1, arr2) => {
     return arr1.filter(element => !arr2.includes(element));
   };
 
 const Vacs = (props) => {
+    const navigate = useNavigate()
+
     const { date } = useParams();
     const [LoggedInUser, setLoggedInUser] = useState({})
 
@@ -30,7 +33,7 @@ const Vacs = (props) => {
     useEffect(()=>{
             axios.post('http://localhost:8000/api/appointments/date',{date})
             .then(response=>{
-            console.log(response)
+            // console.log(response)
             const hours=response.data.map(appts=>appts.hour);
             const num=excludeElements(nums,hours)
             setResponseData(num)
@@ -39,9 +42,12 @@ const Vacs = (props) => {
     }, [date]); 
 
     const Book=(e,number)=>{
-        console.log("http://localhost:8000/api/new/"+number+"/"+LoggedInUser._id,{date})
         axios.post("http://localhost:8000/api/new/"+number+"/"+LoggedInUser._id,{date})
-        .then(res=>console.log(res))
+        .then(res=>{
+        console.log(date);
+
+          navigate("/yourAppointments")
+        })
         .catch(err=>console.log(err))
         e.target.remove()
     }
