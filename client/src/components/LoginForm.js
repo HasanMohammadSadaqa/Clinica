@@ -14,7 +14,7 @@ const LoginForm = (props) => {
         <div>
 
             <h3 className='col-12 text-center m-3'>Login To Your Account</h3>
-            {errors ? <p className='text-danger col-6'>{errors}</p> : ""}
+            {/* {errors ? <p className='text-danger col-6'>{errors}</p> : ""} */}
 
             <form onSubmit={handleLoginSubmit} className={styles.center}>
                 <div className='col-6 mt-5'>

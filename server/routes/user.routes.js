@@ -9,8 +9,10 @@ module.exports = app =>{
     app.get('/api/user/loggedIn',authenticate, UserController.getLoggedInUser)
     app.get('/api/user/logout', UserController.logOut)
     app.get('/api/users', UserController.getAllUsers);
+    // app.get('api/user/:id',()=> console.log("--------------------------------"));
     app.get('api/user/:id', UserController.getUser);
     app.put('/api/update/:id', UserController.updateUser);
+    // app.delete('/api/users/:id',()=>console.log("----------------------------------------------"));
     app.delete('/api/users/:id', UserController.deleteUser);
     app.post('/api/new/:num/:id', UserController.newAppointment);
     app.post('/api/note/:id',UserController.addNote);

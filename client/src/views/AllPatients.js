@@ -64,7 +64,7 @@ const Allpatients = (props) => {
                         return (
                                 <tr>
                                     <td key={id} className='h3'> <Link to={`/onePatient/${user._id}`} >{user.firstName} {user.lastName} </Link></td>
-                                    {/* <td key={id} className='h3'> {user.gender} </td> */}
+                                    <td key={id} className='h3'> {user.gender} </td>
                                     <td key={id} className='h3'> {user.birthday}</td>
                                 </tr>
                         )

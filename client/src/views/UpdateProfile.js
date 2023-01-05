@@ -17,14 +17,15 @@ const UpdtaeProfile = (props) => {
 
 
     const [userId, setUserId] = useState("")
-    // const { id } = useParams()
+    const { id } = useParams()
     const navigate = useNavigate()
     useEffect(() => {
-        axios.get("http://localhost:8000/api/user/loggedIn", { withCredentials: true })
+        axios.get(`http://localhost:8000/api/user/${id}`)
             .then(res => {
-                setLoggedInUser(res.data.loggedUser)
+                setUser(res.data.loggedUser)
                 setUserId(res.data.loggedUser._id)
-                console.log(res.data.loggedUser._id)
+                console.log(userId)
+                
             })
 
             .catch(err => {
@@ -32,8 +33,8 @@ const UpdtaeProfile = (props) => {
             })
     }, [])
 
-    const updateUser = (LoggedInUser) => {
-        axios.put(`http://localhost:8000/api/users/${userId}`, LoggedInUser)
+    const updateUser = (user) => {
+        axios.put(`http://localhost:8000/api/users/${userId}`, user)
             .then(() => navigate(`/yourAppointments`))
             .catch(err => {
                 // console.log(err.response.data.err)
@@ -51,7 +52,7 @@ const UpdtaeProfile = (props) => {
         <div>
             <PatientNav userLogOut={userLogOut} />
             <h1 className='col-6'>Update Profile:</h1>
-            <RegForm initFName={LoggedInUser.firstNme} initLName={LoggedInUser.lastName} initPhone={LoggedInUser.phone} initBD={LoggedInUser.birthday} initEmail={LoggedInUser.email} initPass="" initConfirm=""
+            <RegForm initFName={user.firstNme} initLName={user.lastName} initPhone={user.phone} initBD={user.birthday} initEmail={user.email} initPass="" initConfirm=""
                 onSubmitProp={updateUser} errors={errors} />
         </div>
     )
