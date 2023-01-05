@@ -13,6 +13,8 @@ import Login from './Login';
 import UpdateProfile from './UpdateProfile'
 import ViewNote from './ViewNote'
 import YourAppointments from './YourAppointments'
+import Book from './Book'
+import Vacs from '../components/Vacs'
 
 
 
@@ -103,7 +105,11 @@ const Main = () => {
                 <Route path={`/today`} element={<Today adminLogOut={AdminLogOut}/>}></Route>
                 <Route path={`/user/registration`} element={<Registration registerNewUser={userRegister} registrationErrors={registrationErrors} />} />
                 <Route path={`/user/login`} element={<Login loginUserAdmin={login} loginErrors={loginErrors} />} />
+                <Route path={"/book/*"} element={<Book   userLogOut={userLogOut}   />}/>
                 {/* <Route path={`/user/profile`} element={<UserProfile userLogOut={userLogOut}/>} /> */}
+                
+                 <Route path="/book/:date" element={<Vacs/>} />
+      
             </Routes>
         </div>
     )

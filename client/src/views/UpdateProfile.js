@@ -8,22 +8,30 @@ import { useParams } from 'react-router-dom'
 const UpdtaeProfile = (props) => {
     const [user, setUser] = useState([])
     const [errors, setErrors] = useState([]);
+    const [LoggedInUser, setLoggedInUser] = useState({})
+
     const [loaded, setLoaded] = useState(false)
 
 
 
-
-    const { id } = useParams()
+const [userId, setUserId] = useState("")
+    // const { id } = useParams()
     const navigate = useNavigate()
     useEffect(() => {
-      axios.get("http://localhost:8000/api/users/" + id)
-        .then((res) => setUser(res.data))
-        .then(() => setLoaded(true))
+        axios.get("http://localhost:8000/api/user/loggedIn", { withCredentials: true })
+        .then(res => {
+            setLoggedInUser(res.data.loggedUser)
+           setUserId(res.data.loggedUser._id)
+        })
+        
+        .catch(err => {
+            console.log(err);
+        })
     }, [])
   
-    const updateUser = (user) => {
-      axios.put(`http://localhost:8000/api/users/${id}`, user)
-        .then(() => navigate(`/yourAppointment/`+id))
+    const updateUser = (LoggedInUser) => {
+      axios.put(`http://localhost:8000/api/users/${userId}`, user)
+        .then(() => navigate(`/yourAppointments`))
         .catch(err => {
           // console.log(err.response.data.err)
           // const errorValidator = err.response.data.err.message
@@ -53,7 +61,7 @@ const UpdtaeProfile = (props) => {
         <div>
             <DoctorNav onClickprop={logOut} />
             <h1 className='col-6'>Update Profile:</h1>
-            <RegForm initFName={user.firstNme} initLName={user.lastName} initPhone={user.phone} initBD={user.birthday} initEmail={user.email} initPass="" initConfirm="" initGender={user.gender}
+            <RegForm initFName={LoggedInUser.firstNme} initLName={LoggedInUser.lastName} initPhone={LoggedInUser.phone} initBD={LoggedInUser.birthday} initEmail={LoggedInUser.email} initPass="" initConfirm="" 
             onSubmitProp={updateUser} errors={errors} />
         </div>
     )

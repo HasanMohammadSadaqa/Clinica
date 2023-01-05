@@ -2,7 +2,7 @@ import { Link, Navigate } from 'react-router-dom'
 import styles from './styles.module.css'
 
 const PatientNav = (props) => {
-  const {userLogOut} = props
+  const {userLogOut, loggedInUser} = props
     return (
 
       <div className={styles.nav1}>
@@ -16,13 +16,13 @@ const PatientNav = (props) => {
         <div className=' ' id=''>
           <div className={styles.nav4}>
             <p>
-              <Link className={styles.nav3} to={`/appointments`}> Home </Link>
+              <Link className={styles.nav3} to={`/yourAppointments`}> Home </Link>
             </p>
             <p>
-              <Link className={styles.nav3} to={`/patientProfile`}> Profile </Link>
+              <Link className={styles.nav3} to={`/updateProfile/${loggedInUser}`}> Profile </Link>
             </p>
             <p>
-              <Link className={styles.nav3} to={`patients`}> Book </Link>
+              <Link className={styles.nav3} to={`/book`}> Book </Link>
             </p>
             <p>
               <button onClick ={userLogOut} className={styles.nav5}> Log Out </button>

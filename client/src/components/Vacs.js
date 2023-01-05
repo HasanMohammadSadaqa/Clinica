@@ -8,9 +8,24 @@ const excludeElements = (arr1, arr2) => {
 
 const Vacs = (props) => {
     const { date } = useParams();
+    const [LoggedInUser, setLoggedInUser] = useState({})
+
     const [...nums] =[...Array(10).keys()];
     const [responseData, setResponseData] = useState([]);
     const [ready, setReady] = useState(false);
+
+
+    useEffect(() => {
+      axios.get("http://localhost:8000/api/user/loggedIn", { withCredentials: true })
+          .then(res => {
+              setLoggedInUser(res.data.loggedUser)
+          })
+          .catch(err => {
+              console.log(err);
+          })
+  }, [])
+
+
 
     useEffect(()=>{
             axios.post('http://localhost:8000/api/appointments/date',{date})
@@ -24,8 +39,8 @@ const Vacs = (props) => {
     }, [date]); 
 
     const Book=(e,number)=>{
-        console.log("http://localhost:8000/api/new/"+number+"/63b316da49bd9c59f5e2a276",{date})
-        axios.post("http://localhost:8000/api/new/"+number+"/63b316da49bd9c59f5e2a276",{date})
+        console.log("http://localhost:8000/api/new/"+number+"/"+LoggedInUser._id,{date})
+        axios.post("http://localhost:8000/api/new/"+number+"/"+LoggedInUser._id,{date})
         .then(res=>console.log(res))
         .catch(err=>console.log(err))
         e.target.remove()
@@ -33,7 +48,7 @@ const Vacs = (props) => {
     return (
       <div style={{color: "blue"}}>
         {date}
-        {ready && responseData.map((number,i)=>
+        { responseData.map((number,i)=>
             <button key={i} onClick={(e)=>Book(e,number)}>
                 {number+8}:00
             </button>
