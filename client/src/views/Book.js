@@ -8,8 +8,11 @@ import Vacs from '../components/Vacs';
 const Book = () => {
   return (
     <div className="App">
-      <p>Hello</p>
+      <h1 className="text-left" style={{padding:"20ps", margin:"20px 20px"}}>Please select a date:</h1>
+      <div style={{margin:"50px 50px"}}>
       <MyCalendar/>
+      </div>
+      
 
 
     </div>

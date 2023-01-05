@@ -46,13 +46,13 @@ const Vacs = (props) => {
         e.target.remove()
     }
     return (
-      <div style={{color: "blue"}}>
-        {date}
-        { responseData.map((number,i)=>
-            <button key={i} onClick={(e)=>Book(e,number)}>
-                {number+8}:00
-            </button>
-        )}
+      <div>
+        <h1 className="text-left" style={{padding:"20ps", margin:"20px 20px"}}>Here is the available appointments:</h1>
+        {responseData? responseData.map((number,i)=>
+          <button key={i} style={{margin: "20px"}} onClick={(e)=>Book(e,number)}>
+            {number+8}:00
+          </button> ):" sorry there is no appointments available fot this day"
+      }
       </div>
     );
 }
