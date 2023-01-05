@@ -53,7 +53,7 @@ const UpdtaeProfile = (props) => {
             <PatientNav userLogOut={userLogOut} />
             <h1 className='col-6'>Update Profile:</h1>
             <RegForm initFName={user.firstNme} initLName={user.lastName} initPhone={user.phone} initBD={user.birthday} initEmail={user.email} initPass="" initConfirm=""
-                onSubmitProp={updateUser} errors={errors} />
+                onSubmitProp={updateUser} errors={errors} submitValue="Update" />
         </div>
     )
 }

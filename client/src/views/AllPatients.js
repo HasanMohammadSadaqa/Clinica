@@ -20,6 +20,7 @@ import { useNavigate } from 'react-router-dom'
 // });
 
 const Allpatients = (props) => {
+    const {adminLogOut} = props
     const navigate = useNavigate()
 
 
@@ -48,14 +49,14 @@ const Allpatients = (props) => {
 
     return (
         <div>
-            <DoctorNav />
+            <DoctorNav adminLogOut={adminLogOut}/>
             <h1 className={styles.header1 }>All Pateints:</h1>
             <div className={styles.table1 }>
                 <MDBTable striped hover>
                 <thead>
                     <tr>
                         <th className='h3'>Name</th>
-                        <th className='h3'>Gender</th>
+                        {/* <th className='h3'>Gender</th> */}
                         <th className='h3'>Birth Day</th>
                     </tr>
                 </thead>
@@ -64,7 +65,7 @@ const Allpatients = (props) => {
                         return (
                                 <tr>
                                     <td key={id} className='h3'> <Link to={`/onePatient/${user._id}`} >{user.firstName} {user.lastName} </Link></td>
-                                    <td key={id} className='h3'> {user.gender} </td>
+                                    {/* <td key={id} className='h3'> {user.gender} </td> */}
                                     <td key={id} className='h3'> {user.birthday}</td>
                                 </tr>
                         )

@@ -67,7 +67,7 @@ const YourAppointments = (props) => {
                                 <tr>
 
                                     <td key={i} className='h3'>{appointment.date}</td>
-                                    <td key={i} className='h3'> {appointment.hour}</td>
+                                    <td key={i} className='h3'> {appointment.hour+8}:00</td>
                                     <td key={i} className='h3'> <button className='btn btn-primary mt-3' onClick={(e)=>deleteAppointment(e,appointment._id)}>Cancel</button> </td>
                                 </tr>
                             )

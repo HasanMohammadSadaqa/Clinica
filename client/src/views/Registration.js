@@ -9,7 +9,7 @@ const Registration = (props) => {
         <div>
             <h3 className='col-12 text-center m-3'>Register in Our Website</h3>
             <RegForm initFName="" initLName="" initPhone="" initBD = "" initEmail="" initPass="" initConfirm=""
-            onSubmitProp={registerNewUser} errors={registrationErrors} />
+            onSubmitProp={registerNewUser} errors={registrationErrors} submitValue="Sign Up" />
         </div>
     )
 }
