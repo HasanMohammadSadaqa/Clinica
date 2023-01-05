@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { useNavigate } from 'react-router-dom';
+import Vacs from './Vacs';
 // import io from 'socket.io-client';
 const MyCalendar = () => {
   // const [socket] = useState(() => io(':8000'));
@@ -12,13 +13,17 @@ const MyCalendar = () => {
   const onChange = newDate => 
     {
     setDate(newDate);
-    navigate("/about/"+date)
+    navigate("/book/"+date)
   }
 
 
 
   return (
-    <Calendar value={date} onChange={onChange}/> );
+    
+    <Calendar value={date} onChange={onChange}/> 
+    
+    
+    );
 };
 
 export default MyCalendar;

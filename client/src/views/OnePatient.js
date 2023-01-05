@@ -17,6 +17,7 @@ import "../App.css";
 // });
 
 const OnePatient = (props) => {
+    const {adminLogOut} = props
     const navigate = useNavigate()
 
     const { oneUser } = props
@@ -33,16 +34,7 @@ const OnePatient = (props) => {
     }, [])
 
 
-    const logOut = (e) => {
-        axios.get("http://localhost:8000/api/user/logout", { withCredentials: true })
-            .then(res => {
 
-                navigate("/");
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
 
 
 
@@ -50,7 +42,7 @@ const OnePatient = (props) => {
 
     return (
         <div>
-            <DoctorNav onClickprop={logOut} />
+            <DoctorNav adminLogOut={adminLogOut} />
             {/* <h1 className={styles.header1 }> {appointments.user.firstName} {appointments.user.lastName} Appointments:</h1> */}
             <div className={styles.table1 }>
                 <MDBTable striped hover>

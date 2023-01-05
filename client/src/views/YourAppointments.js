@@ -43,7 +43,7 @@ const YourAppointments = (props) => {
     }, [])
     return (
         <div>
-            <PatientNav userLogOut={userLogOut}/>
+            <PatientNav loggedInUser={LoggedInUser._id} userLogOut={userLogOut}/>
             <h1 className={styles.header1}> {LoggedInUser.firstName} {LoggedInUser.lastName} Appointments:</h1>
             <div className={styles.table1}>
                 <MDBTable striped hover>
@@ -62,7 +62,7 @@ const YourAppointments = (props) => {
 
                                     <td key={i} className='h3'>{appointment.date}</td>
                                     <td key={i} className='h3'> {appointment.hour}</td>
-                                    <td key={i} className='h3'> <Link to={`/viewNote/${appointment.user._id}`} >Make a Note</Link></td>
+                                    {/* <td key={i} className='h3'> <Link to={`/viewNote/${appointment.user._id}`} >Make a Note</Link></td> */}
                                 </tr>
                             )
                         })}
