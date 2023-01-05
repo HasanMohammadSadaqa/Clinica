@@ -41,6 +41,12 @@ const YourAppointments = (props) => {
                 console.log(err);
             })
     }, [])
+
+    const deleteAppointment = (e,appointmentId)=>{
+        console.log(appointmentId)
+        axios.delete(`http://localhost:8000/api/users/${appointmentId}`)
+        .then(()=>setAppointments(appointments.filter((app)=> appointmentId !== app._id)))
+    }
     return (
         <div>
             <PatientNav loggedInUser={LoggedInUser._id} userLogOut={userLogOut}/>
@@ -62,7 +68,7 @@ const YourAppointments = (props) => {
 
                                     <td key={i} className='h3'>{appointment.date}</td>
                                     <td key={i} className='h3'> {appointment.hour}</td>
-                                    {/* <td key={i} className='h3'> <Link to={`/viewNote/${appointment.user._id}`} >Make a Note</Link></td> */}
+                                    <td key={i} className='h3'> <button className='btn btn-primary mt-3' onClick={(e)=>deleteAppointment(e,appointment._id)}>Cancel</button> </td>
                                 </tr>
                             )
                         })}
